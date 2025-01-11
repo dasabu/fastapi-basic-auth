@@ -3,8 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from decouple import config
 
-SQLALCHEMY_DATABASE_URL = config("SQLALCHEMY_DATABASE_URL")
-
+# SQLALCHEMY_DATABASE_URL = config("SQLALCHEMY_DATABASE_URL")
+SQLALCHEMY_DATABASE_URL = "postgresql://user:123456@localhost:5432/postgres"
 # starting point for the SQL Alchemy application
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

@@ -1,0 +1,26 @@
+name: fastapi-basic-auth
+services:
+  app:
+    build: .
+    ports:
+      - '8000:8000'
+    networks:
+      - app-networks
+    depends_on:
+      - db
+    env_file:
+      - .env
+    # restarts: always
+  db:
+    image: postgres:latest
+    container_name: fastapi-basic-auth-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - '5432:5432'
+    networks:
+      - app-networks
+
+networks:
+  app-networks:
